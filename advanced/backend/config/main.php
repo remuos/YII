@@ -18,6 +18,7 @@ return [
             'settings' => [
                 'class' => 'backend\Modules\settings\Settings',
                 ],
+           
         ],
     'components' => [
         'request' => [
@@ -50,14 +51,16 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+        
         'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
+               'enablePrettyUrl' => true,
+                'enableStrictParsing' => true,
+                'showScriptName' => false,
+                'rules' => [
+                    ['class' => 'yii\rest\UrlRule', 'controller' => 'todos'],
+                ],
         ],
-        */
+        
     ],
     'params' => $params,
 ];

@@ -7,21 +7,25 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'modules' =>[
+     'modules' =>[
          'user' => [
                 'class' => 'dektrium\user\Module',
-                /*'modelMap'>[
-                    'RegistrationForm'=>'app\models\RegistrationForm.php',
-                ],*/
+                'modelMap'=>[
+                    'RegistrationForm'=>'app\models\RegistrationForm'
+                ],
             ],
     ],
     'components' => [
+        'view'=>[
+                'theme'=>[
+                    'pathMap'=>[
+                        '@dektrium/user/views'=>'@app/views/user'
+                    ],
+                ],
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'gAjhgqfe898?B90UjgCWVgghftf10jh',
-            'parsers' => [
-                'application/json' => 'yii\web\JsonParser',
-            ]
+            'cookieValidationKey' => 'n2D_xQFs0GYI1zxbuqZEaSiSRBWTlhqK',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -44,7 +48,7 @@ $config = [
                 'username'=>'remuosoumer@gmail.com',
                 'password'=>'remuos102abd',
                 'port' =>'587',
-                'encryption'=>'lts',
+                'encryption'=>'tls',
             ],
             //'useFileTransport' => true,
         ],
@@ -58,16 +62,14 @@ $config = [
             ],
         ],
         'db' => $db,
-        
+        /*
         'urlManager' => [
-             'enablePrettyUrl' => true,
-    'enableStrictParsing' => true,
-    'showScriptName' => false,
-    'rules' => [
-        ['class' => 'yii\rest\UrlRule', 'controller' => 'todo'],
-    ],
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+            ],
         ],
-        
+        */
     ],
     'params' => $params,
 ];
